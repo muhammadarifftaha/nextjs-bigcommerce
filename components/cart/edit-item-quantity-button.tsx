@@ -10,6 +10,36 @@ import { useFormState, useFormStatus } from 'react-dom';
 function SubmitButton({ type }: { type: 'plus' | 'minus' }) {
   const { pending } = useFormStatus();
 
+<<<<<<< HEAD
+=======
+  async function handleEdit() {
+    setEditing(true);
+
+    const response = await fetch(`/api/cart`, {
+      method: type === 'minus' && item.quantity - 1 === 0 ? 'POST' : 'PUT',
+      body: JSON.stringify({
+        lineId: item.id,
+        productId: item.merchandise.product.handle,
+        variantId: item.merchandise.id,
+        quantity: type === 'plus' ? item.quantity + 1 : item.quantity - 1,
+        isBigCommerceAPI: true
+      })
+    });
+
+    const data = await response.json();
+
+    if (data.error) {
+      alert(data.error);
+      return;
+    }
+
+    setEditing(false);
+
+    startTransition(() => {
+      router.refresh();
+    });
+  }
+>>>>>>> 447e060 (feat: add cart operations)
   return (
     <button
       type="submit"
