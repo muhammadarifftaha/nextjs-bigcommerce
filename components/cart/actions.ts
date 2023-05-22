@@ -73,7 +73,7 @@ export async function updateItemQuantity(
       {
         id: lineId,
         merchandiseId: variantId,
-        quantity
+        quantity,
       }
     ]);
     revalidateTag(TAGS.cart);
