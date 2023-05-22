@@ -176,4 +176,3 @@ const productFragment = /* GraphQL */ `
 `;
 
 export { productFragment, productOptionFragment, productVariantFragment };
-
