@@ -108,7 +108,11 @@ export async function bigCommerceFetch<T>({
         ...(query && { query }),
         ...(variables && { variables })
       }),
+<<<<<<< HEAD
       cache
+=======
+      cache,
+>>>>>>> 0563fc4 (add customer impersonation token to env)
     });
 
     const body = await result.json();
