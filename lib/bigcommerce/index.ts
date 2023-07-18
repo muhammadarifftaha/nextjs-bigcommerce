@@ -620,6 +620,7 @@ export async function getProduct(handle: string): Promise<VercelProduct | undefi
   return bigCommerceToVercelProduct(res.body.data.site.product);
 }
 
+<<<<<<< HEAD
 export async function getProductIdBySlug(path: string): Promise<
   | {
       __typename:
@@ -638,6 +639,19 @@ export async function getProductIdBySlug(path: string): Promise<
     query: getEntityIdByRouteQuery,
     variables: {
       path
+=======
+export async function getProductIdBySlug(path: string): Promise<{__typename: 'Product'
+| 'Category'
+| 'Brand'
+| 'NormalPage'
+| 'ContactPage'
+| 'RawHtmlPage'
+| 'BlogIndexPage', entityId: number} | undefined> {
+  const res = await bigCommerceFetch<BigCommerceEntityIdOperation>({
+    query: getEntityIdByRouteQuery,
+    variables: {
+      path,
+>>>>>>> 6c7a048 (add product slug url instead of id)
     }
   });
 
