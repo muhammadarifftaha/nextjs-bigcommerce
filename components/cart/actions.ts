@@ -5,9 +5,18 @@ import { TAGS } from 'lib/constants';
 import { revalidateTag } from 'next/cache';
 import { cookies } from 'next/headers';
 
+<<<<<<< HEAD
 export async function addItem(prevState: any, selectedVariantId: string | undefined) {
   let cartId = cookies().get('cartId')?.value;
   let cart;
+=======
+export const addItem = async (
+  isBigCommerceAPI: boolean,
+  productId: string,
+  variantId: string | undefined
+): Promise<Error | string> => {
+  const cartId = cookies().get('cartId')?.value;
+>>>>>>> 4ee61e1 (clear cart id cookie on removing last item)
 
   if (cartId) {
     cart = await getCart(cartId);
@@ -39,8 +48,16 @@ export async function removeItem(prevState: any, lineId: string) {
   }
 
   try {
+<<<<<<< HEAD
     await removeFromCart(cartId, [lineId]);
     revalidateTag(TAGS.cart);
+=======
+    const response = await removeFromCart(cartId, [lineId]);
+
+    if (!response && cartId) {
+      cookies().delete('cartId');
+    }
+>>>>>>> 4ee61e1 (clear cart id cookie on removing last item)
   } catch (e) {
     return 'Error removing item from cart';
   }
