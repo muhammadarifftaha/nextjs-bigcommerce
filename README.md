@@ -69,6 +69,7 @@ The app runs on [localhost:3000](http://localhost:3000/).
 - [Optimized One-Page Checkout](https://developer.bigcommerce.com/stencil-docs/customizing-checkout/optimized-one-page-checkout)
 - [Stencil theme to customize checkout page](https://developer.bigcommerce.com/stencil-docs/getting-started/about-stencil#stencil-cli) and inform styling of shopper emails
 
+<<<<<<< HEAD
 ## Get to know the BigCommerce GraphQL Storefront API
 
 In addition to being compatible with BigCommerce's multi-storefront features, Next.js + BigCommerce uses the [GraphQL Storefront API](https://developer.bigcommerce.com/api-docs/storefront/graphql/graphql-api-overview). This API makes it possible for merchants to control the representation of products and categories, carts, orders, customer segmentation, and more. To get a sense of what is possible to do directly on the storefront, check out the [GraphQL Playground](https://developer.bigcommerce.com/graphql-storefront/playground).
@@ -102,3 +103,8 @@ Shopper journeys:
 ## Join our developer community
 
 We invite you to give feedback and ask questions in our [Developer Community](https://developer.bigcommerce.com/community) BigCommerceDevs Slack or on our Discord server.
+=======
+## Vercel, Next.js Commerce, and Shopify Integration Guide
+
+You can use this comprehensive [integration guide](http://vercel.com/docs/integrations/shopify) with step-by-step instructions on how to configure Shopify as a headless CMS using Next.js Commerce as your headless Shopify storefront on Vercel.
+>>>>>>> 6a153b6 (Replaces README configuration guide with Vercel and Shopify integration guide (#1174))
