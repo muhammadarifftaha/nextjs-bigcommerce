@@ -22,7 +22,11 @@ To get started, use this README and the [example environment variable comments](
 
 ## Develop locally
 
+<<<<<<< HEAD
 To automatically clone the template repo and configure Vercel environment variables for your project, use the [Deploy with Vercel](#) button at the beginning of this README. After you complete the interactive configuration sequence, you can clone the automatically-created project to your local environment.
+=======
+Vercel is happy to partner and work with any commerce provider to help them get a similar template up and running and listed below. Alternative providers should be able to fork this repository and swap out the `lib/shopify` file with their own implementation while leaving the rest of the template mostly unchanged.
+>>>>>>> e9643a5 (Adds download link for product assets (#1179))
 
 <<<<<<< HEAD
 You can also clone the template repo manually and supply the environment variables [defined in .env.example](.env.example). The best practice is to use [Vercel environment variables](https://vercel.com/docs/concepts/projects/environment-variables) for this, but a `.env` file is all that is necessary.
@@ -35,7 +39,13 @@ You can also clone the template repo manually and supply the environment variabl
 - [Swell](https://github.com/swellstores/verswell-commerce) ([Demo](https://verswell-commerce.vercel.app/))
 >>>>>>> e8c0ee0 (Adds Shopware provider (#1156))
 
+<<<<<<< HEAD
 > Note: Do not commit your `.env` file. It exposes secrets that allow others to control your BigCommerce store.
+=======
+> Note: Providers, if you are looking to use similar products for your demo, you can [download these assets](https://drive.google.com/file/d/1q_bKerjrwZgHwCw0ovfUMW6He9VtepO_/view?usp=sharing).
+
+## Running locally
+>>>>>>> e9643a5 (Adds download link for product assets (#1179))
 
 1. Install the Vercel CLI:
 
@@ -69,7 +79,6 @@ The app runs on [localhost:3000](http://localhost:3000/).
 - [Optimized One-Page Checkout](https://developer.bigcommerce.com/stencil-docs/customizing-checkout/optimized-one-page-checkout)
 - [Stencil theme to customize checkout page](https://developer.bigcommerce.com/stencil-docs/getting-started/about-stencil#stencil-cli) and inform styling of shopper emails
 
-<<<<<<< HEAD
 ## Get to know the BigCommerce GraphQL Storefront API
 
 In addition to being compatible with BigCommerce's multi-storefront features, Next.js + BigCommerce uses the [GraphQL Storefront API](https://developer.bigcommerce.com/api-docs/storefront/graphql/graphql-api-overview). This API makes it possible for merchants to control the representation of products and categories, carts, orders, customer segmentation, and more. To get a sense of what is possible to do directly on the storefront, check out the [GraphQL Playground](https://developer.bigcommerce.com/graphql-storefront/playground).
@@ -103,8 +112,3 @@ Shopper journeys:
 ## Join our developer community
 
 We invite you to give feedback and ask questions in our [Developer Community](https://developer.bigcommerce.com/community) BigCommerceDevs Slack or on our Discord server.
-=======
-## Vercel, Next.js Commerce, and Shopify Integration Guide
-
-You can use this comprehensive [integration guide](http://vercel.com/docs/integrations/shopify) with step-by-step instructions on how to configure Shopify as a headless CMS using Next.js Commerce as your headless Shopify storefront on Vercel.
->>>>>>> 6a153b6 (Replaces README configuration guide with Vercel and Shopify integration guide (#1174))
