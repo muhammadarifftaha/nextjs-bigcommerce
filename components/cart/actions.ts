@@ -1,75 +1,83 @@
 'use server';
 
-import { addToCart, removeFromCart, updateCart } from 'lib/bigcommerce';
+import { addToCart, createCart, getCart, removeFromCart, updateCart } from 'lib/bigcommerce';
+import { TAGS } from 'lib/constants';
+import { revalidateTag } from 'next/cache';
 import { cookies } from 'next/headers';
 
-export const addItem = async (
-  isBigCommerceAPI: boolean,
-  productId: string,
-  variantId: string | undefined
-): Promise<Error | string> => {
-  const cartId = cookies().get('cartId')?.value;
+export async function addItem(prevState: any, selectedVariantId: string | undefined) {
+  let cartId = cookies().get('cartId')?.value;
+  let cart;
 
-  if ((!isBigCommerceAPI && !cartId) || !variantId) {
-    return new Error('Missing cartId or variantId');
-  } else if (isBigCommerceAPI && !variantId) {
-    return new Error('Missing variantId');
+  if (cartId) {
+    cart = await getCart(cartId);
+  }
+
+  if (!cartId || !cart) {
+    cart = await createCart();
+    cartId = cart.id;
+    cookies().set('cartId', cartId);
+  }
+
+  if (!selectedVariantId) {
+    return 'Missing product variant ID';
   }
 
   try {
-    const { id } = await addToCart(cartId ?? '', [
-      { merchandiseId: variantId, quantity: 1, productId }
-    ]);
-    cookies().set('cartId', id);
-    return id;
+    await addToCart(cartId, [{ merchandiseId: selectedVariantId, quantity: 1 }]);
+    revalidateTag(TAGS.cart);
   } catch (e) {
-    return new Error('Error adding item to cart');
+    return 'Error adding item to cart';
   }
-};
+}
 
-export const removeItem = async (lineId: string): Promise<String | undefined> => {
+export async function removeItem(prevState: any, lineId: string) {
   const cartId = cookies().get('cartId')?.value;
 
   if (!cartId) {
     return 'Missing cart ID';
   }
-  try {
-    const response = await removeFromCart(cartId, [lineId]);
 
-    if (!response && cartId) {
-      cookies().delete('cartId');
-    }
+  try {
+    await removeFromCart(cartId, [lineId]);
+    revalidateTag(TAGS.cart);
   } catch (e) {
     return 'Error removing item from cart';
   }
-};
+}
 
-export const updateItemQuantity = async ({
-  lineId,
-  productSlug,
-  variantId,
-  quantity
-}: {
-  lineId: string;
-  productSlug: string;
-  variantId: string;
-  quantity: number;
-}): Promise<String | undefined> => {
+export async function updateItemQuantity(
+  prevState: any,
+  payload: {
+    lineId: string;
+    variantId: string;
+    quantity: number;
+  }
+) {
   const cartId = cookies().get('cartId')?.value;
 
   if (!cartId) {
     return 'Missing cart ID';
   }
+
+  const { lineId, variantId, quantity } = payload;
+
   try {
+    if (quantity === 0) {
+      await removeFromCart(cartId, [lineId]);
+      revalidateTag(TAGS.cart);
+      return;
+    }
+
     await updateCart(cartId, [
       {
         id: lineId,
         merchandiseId: variantId,
-        quantity,
-        productSlug
+        quantity
       }
     ]);
+    revalidateTag(TAGS.cart);
   } catch (e) {
     return 'Error updating item quantity';
   }
-};
+}
