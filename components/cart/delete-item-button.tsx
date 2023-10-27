@@ -3,18 +3,9 @@
 import { XMarkIcon } from '@heroicons/react/24/outline';
 import clsx from 'clsx';
 import { removeItem } from 'components/cart/actions';
-<<<<<<< HEAD
-import type { VercelCartItem as CartItem } from 'lib/bigcommerce/types';
-import { useTransition } from 'react';
-=======
 import LoadingDots from 'components/loading-dots';
-import type { CartItem } from 'lib/shopify/types';
-import {
-  // @ts-ignore
-  experimental_useFormState as useFormState,
-  experimental_useFormStatus as useFormStatus
-} from 'react-dom';
->>>>>>> 1f47796 (Improves form submissions and updates dependencies (#1209))
+import type { VercelCartItem as CartItem } from 'lib/bigcommerce/types';
+import { useFormState, useFormStatus } from 'react-dom';
 
 function SubmitButton() {
   const { pending } = useFormStatus();
