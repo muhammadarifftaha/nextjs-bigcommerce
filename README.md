@@ -1,6 +1,6 @@
 # Next.js + BigCommerce
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?demo-title=Next.js%20%2B%20BigCommerce&demo-description=An%20all-in-one%20starter%20kit%20for%20high-performance%20BigCommerce%20storefronts.&demo-url=https%3A%2F%2Fnext-commerce-v2.vercel.app%2F&demo-image=%2F%2Fimages.ctfassets.net%2Fe5382hct74si%2F1RzhtOHEvW7xyn9qAsdr5E%2F783c7bbd498d0f3b752637d2efa0bb6e%2FNew_Project__5_.png&project-name=Next.js%20%2B%20BigCommerce&repository-name=nextjs-commerce&repository-url=https://github.com/bigcommerce/nextjs-commerce&from=templates&env=COMPANY_NAME%2CTWITTER_CREATOR%2CTWITTER_SITE%2CSITE_NAME%2CBIGCOMMERCE_ACCESS_TOKEN%2CBIGCOMMERCE_CHANNEL_ID%2CBIGCOMMERCE_STORE_HASH%2CBIGCOMMERCE_CANONICAL_STORE_DOMAIN%2CBIGCOMMERCE_API_URL%2CBIGCOMMERCE_CDN_HOSTNAME%2CBIGCOMMERCE_CUSTOMER_IMPERSONATION_TOKEN&envDescription=These%20values%20let%20you%20connect%20to%20your%20headless%20BigCommmerce%20storefront.&envLink=https%3A%2F%2Fgithub.com%2Fbigcommerce%2Fnextjs-commerce%2Fblob%2Fmain%2F.env.example)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?demo-title=Next.js%20%2B%20BigCommerce&demo-description=An%20all-in-one%20starter%20kit%20for%20high-performance%20BigCommerce%20storefronts.&demo-url=https%3A%2F%2Fnext-commerce-v2.vercel.app%2F&demo-image=%2F%2Fimages.ctfassets.net%2Fe5382hct74si%2F1RzhtOHEvW7xyn9qAsdr5E%2F783c7bbd498d0f3b752637d2efa0bb6e%2FNew_Project__5_.png&from=templates&repository-url=https%3A%2F%2Fgithub.com%2Fbigcommerce%2Fnextjs-commerce&project-name=nextjs-commerce&repository-name=nextjs-commerce&integration-ids=oac_nsrwzogJLEFglVwt2060kB0y)
 
 A Next.js 14 and App Router-ready headless storefront template for BigCommerce, featuring:
 
@@ -14,39 +14,42 @@ A Next.js 14 and App Router-ready headless storefront template for BigCommerce, 
 - Styling with [Tailwind CSS](https://tailwindcss.com/)
 - Automatic light/dark mode based on system settings
 
+## 🔎 Looking for more? 
+
+Learn more about our suite of Next.js 13+ tools for enterprise commerce: https://developer.bigcommerce.com/catalyst
+
 ## Prerequisites
 
 Next.js + BigCommerce requires a [BigCommerce sandbox](https://developer.bigcommerce.com/api-docs/partner/create-a-sandbox) or a [production store provisioned to run a headless storefront](https://www.bigcommerce.com/solutions/multi-store/).
 
-To get started, use this README and the [example environment variable comments](.env.example).
+To get started, use this README and the [example environment variable comments](https://github.com/bigcommerce/nextjs-commerce/blob/main/.env.example).
 
 ## Develop locally
 
 To automatically clone the template repo and configure Vercel environment variables for your project, use the [Deploy with Vercel](#) button at the beginning of this README. After you complete the interactive configuration sequence, you can clone the automatically-created project to your local environment.
 
-You can also clone the template repo manually and supply the environment variables [defined in .env.example](.env.example). The best practice is to use [Vercel environment variables](https://vercel.com/docs/concepts/projects/environment-variables) for this, but a `.env` file is all that is necessary.
+You can also clone the template repo manually and supply the environment variables [defined in .env.example](https://github.com/bigcommerce/nextjs-commerce/blob/main/.env.example). The best practice is to use [Vercel environment variables](https://vercel.com/docs/concepts/projects/environment-variables) for this, but a `.env` file is all that is necessary.
 
 > Note: Do not commit your `.env` file. It exposes secrets that allow others to control your BigCommerce store.
 
-1. Install the Vercel CLI:
+- Install the Vercel CLI:
 
 ```bash
 npm i -g vercel
 ```
-
-2. Link your local instance with the desired Vercel and GitHub accounts. This action creates a `.vercel` directory:
+- Link your local instance with the desired Vercel and GitHub accounts. This action creates a `.vercel` directory:
 
 ```bash
 vercel link
 ```
 
-3. Download the [Vercel environment variables](https://vercel.com/docs/concepts/projects/environment-variables):
+- Download the [Vercel environment variables](https://vercel.com/docs/concepts/projects/environment-variables):
 
 ```bash
 vercel env pull
 ```
 
-4. Install the app's default dependencies and start the development server:
+- Install the app's default dependencies and start the development server:
 
 ```bash
 pnpm install

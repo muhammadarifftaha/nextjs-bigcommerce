@@ -73,13 +73,15 @@ export function AddToCart({
   const [message, formAction] = useFormState(addItem, null);
   const searchParams = useSearchParams();
   const defaultVariantId = variants.length === 1 ? variants[0]?.id : undefined;
+  const defaultProductId = variants.length === 1 ? variants[0]?.parentId : undefined;
   const variant = variants.find((variant: ProductVariant) =>
     variant.selectedOptions.every(
       (option) => option.value === searchParams.get(option.name.toLowerCase())
     )
   );
   const selectedVariantId = variant?.id || defaultVariantId;
-  const actionWithVariant = formAction.bind(null, selectedVariantId);
+  const selectedProductId = variant?.parentId || defaultProductId;
+  const actionWithVariant = formAction.bind(null, { selectedProductId, selectedVariantId });
 
   return (
     <form action={actionWithVariant}>

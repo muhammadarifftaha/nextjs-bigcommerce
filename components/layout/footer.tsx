@@ -51,9 +51,8 @@ export default async function Footer() {
             {copyrightName.length && !copyrightName.endsWith('.') ? '.' : ''} All rights reserved.
           </p>
           <p className="md:ml-auto">
-            Crafted by{' '}
             <a href="https://bigcommerce.com" className="text-black dark:text-white">
-              BigCommerce
+              Crafted by BigCommerce
             </a>
           </p>
         </div>
