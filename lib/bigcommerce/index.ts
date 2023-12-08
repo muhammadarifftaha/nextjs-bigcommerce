@@ -527,7 +527,7 @@ export async function getMenu(handle: string): Promise<VercelMenu[]> {
 
           if (menuType === 'header') {
             const { name, path, hasChildren, children } = item as BigCommerceCategoryTreeItem;
-            const vercelTitle = configureMenuPath(path);
+            const vercelTitle = configureMenuPath(path ?? '');
             // NOTE: keep only high level categories for NavBar
             // if (hasChildren && children) {
             //   return configureVercelMenu(children, hasChildren);
@@ -543,7 +543,7 @@ export async function getMenu(handle: string): Promise<VercelMenu[]> {
 
           if (menuType === 'footer') {
             const { isVisibleInNavigation, name, path } = item as BigCommercePage;
-            const vercelTitle = configureMenuPath(path);
+            const vercelTitle = configureMenuPath(path ?? '');
 
             vercelMenuItem = {
               title: name,

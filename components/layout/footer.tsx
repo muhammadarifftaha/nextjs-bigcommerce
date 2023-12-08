@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
-import FooterMenu from 'components/layout/footer-menu';
 import GitHubIcon from 'components/icons/github';
+import FooterMenu from 'components/layout/footer-menu';
 import LogoSquare from 'components/logo-square';
 import { getMenu } from 'lib/bigcommerce';
 import { Suspense } from 'react';
