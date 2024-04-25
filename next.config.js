@@ -4,13 +4,14 @@ module.exports = {
     // Disabling on production builds because we're running checks on PRs via GitHub Actions.
     ignoreDuringBuilds: true
   },
-  experimental: {
-    serverActions: true
-  },
   images: {
     remotePatterns: [
       {
         hostname: process.env.BIGCOMMERCE_CDN_HOSTNAME ?? '*.bigcommerce.com'
+      },
+      {
+        hostname: 'images.ctfassets.net',
+        pathname: '/jhf0apvy4fhs/**/*'
       }
     ]
   },

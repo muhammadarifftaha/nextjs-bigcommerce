@@ -11,8 +11,6 @@ import { Image } from 'lib/bigcommerce/types';
 import { HIDDEN_PRODUCT_TAG } from 'lib/constants';
 import Link from 'next/link';
 
-export const runtime = 'edge';
-
 export async function generateMetadata({
   params
 }: {

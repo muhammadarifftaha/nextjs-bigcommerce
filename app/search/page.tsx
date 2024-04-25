@@ -3,8 +3,6 @@ import ProductGridItems from 'components/layout/product-grid-items';
 import { getProducts } from 'lib/bigcommerce';
 import { defaultSort, sorting } from 'lib/constants';
 
-export const runtime = 'edge';
-
 export const metadata = {
   title: 'Search',
   description: 'Search for products in the store.'
